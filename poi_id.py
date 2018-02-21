@@ -9,13 +9,10 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.cross_validation import train_test_split
-import selectKbest as kbest
 plt.style.use('ggplot')
-import featureCreator as fc
+import feature_creator as fc
 import pandas as pd
 from sklearn.model_selection import train_test_split, StratifiedShuffleSplit, GridSearchCV
-
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
@@ -26,17 +23,11 @@ from feature_format import featureFormat, targetFeatureSplit
 from tester import dump_classifier_and_data, test_classifier
 
 ### Task 1: Select what features you'll use.
-### features_list is a list of strings, each of which is a feature name.
-### The first feature must be "poi".
-featuresList = [
-					'poi','exercised_stock_options', 'total_stock_value', 'bonus',
-					'salary', 'deferred_income', 'long_term_incentive',
-					'restricted_stock', 'total_payments', 'shared_receipt_with_poi',
-					'loan_advances', 'expenses', 'from_poi_to_this_person', 'from_this_person_to_poi'
-				]
-
-#print("Features list:\n")
-pprint.pprint(featuresList)
+feature_list = ['poi', 'salary', 'to_messages', 'deferral_payments', 'total_payments',
+                 'loan_advances', 'bonus', 'restricted_stock_deferred',
+                 'deferred_income', 'total_stock_value', 'expenses', 'from_poi_to_this_person',
+                 'exercised_stock_options', 'from_messages', 'other', 'from_this_person_to_poi',
+                 'long_term_incentive', 'shared_receipt_with_poi', 'restricted_stock', 'director_fees']
 
 ### Load the dictionary containing the dataset
 with open("final_project_dataset.pkl", "rb") as data_file:
@@ -52,7 +43,6 @@ for featureValues in data_dict.values():
 #print('There are {} POIs and {} non-POI''s.'.format(poi_counts[True], poi_counts[False]))
 
 # Names of features
-
 list(list(data_dict.values())[0].keys())
 
 # Features with missing values
@@ -61,7 +51,7 @@ nanCountNonPoi = defaultdict(int)
 
 #find the poi that has no data assocaited to it.
 
-def doFilterNaNValues():
+def do_filter_nan_values():
     for dataPoint in data_dict.values():
         if dataPoint['poi'] == True:
             for feature, value in dataPoint.items():
@@ -87,9 +77,7 @@ def doFilterNaNValues():
     # plt.show()
 
 
-doFilterNaNValues()
-
-
+do_filter_nan_values()
 
 ### Task 2: Remove outliers
 
@@ -106,16 +94,18 @@ below functions creates features:
 'poi_email_ratio'
 
 '''
-featuresList = fc.CreateExercisedStockRatio(data_dict,featuresList)
-featuresList = fc.CreatePoiEmailRatio(data_dict,featuresList)
+feature_list = fc.CreateExercisedStockRatio(data_dict, feature_list)
+feature_list = fc.CreatePoiEmailRatio(data_dict, feature_list)
 
 ### Store to my_dataset for easy export below.
 myDataSet = data_dict
 #print('data set has: ',my_dataset)
 
+
+
 ### Extract features and labels from dataset for local testing
 
-data = featureFormat(myDataSet, featuresList, sort_keys = True)
+data = featureFormat(myDataSet, feature_list, sort_keys = True)
 #print('data extract features has : ', data)
 labels, features = targetFeatureSplit(data)
 
@@ -124,7 +114,7 @@ labels, features = targetFeatureSplit(data)
     input: featuresList
         
 '''
-def doScaleData():
+def do_scale_data():
     from sklearn.preprocessing import MinMaxScaler
     features_train, features_test, labels_train, labels_test = \
         train_test_split(features, labels, test_size=0.3, random_state=42)
@@ -144,14 +134,14 @@ def doScaleData():
     answers question: who are the 'big shots' at enron
     reduces noise - get the most 'noisy'
 '''
-def doPCA(data):
+def do_pca(data):
     from sklearn.decomposition import PCA
     pca = PCA(n_components=8)
     pca.fit(data)
     return pca
 
 #get the pca object
-pca=doPCA(data)
+pca=do_pca(data)
 
 #define estimator
 estimators = [('reduce_dim', PCA(n_components=pca.n_components)), ('clf', DecisionTreeClassifier(min_samples_split=3))]
@@ -172,40 +162,16 @@ second_pc = pca.components_[1]
 '''
 
 '''
-    input: #PCA'fied data
-    returns classifier
+    Using adaboost.
+    returns decision tree classifier classifier
 '''
 
 
-def doDecisionTree():
+def do_ADA_decision_tree():
+    clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1, min_samples_leaf=2, class_weight='balanced'),
+                             n_estimators=50, learning_rate=.8)
 
-    clf = DecisionTreeClassifier(min_samples_split=8)
-
-    DtFeaturesList = ['poi', 'exercised_stock_options', 'poi_email_ratio']
-
-    #doPlot(myDataSet,DtFeaturesList)
-
-    minMaxfeaturesList = doScaleData()
-
-
-    features_train, minMaxfeaturesList, labels_train, labels_test = \
-        train_test_split(features, labels, test_size=0.3, random_state=42)
-
-    clf.fit(features_train, labels_train)
-
-    pred = clf.predict(features_test)
-
-    test_classifier(clf, myDataSet, DtFeaturesList, folds=1000)
-
-
-
-    print(accuracy_score(labels_test, pred))
-    print(precision_score(labels_test, pred))
-    print(recall_score(labels_test, pred))
-    print(f1_score(labels_test, pred))
-    print(classification_report(labels_test, pred))
-    print(confusion_matrix(labels_test, pred))
-
+    test_classifier(clf, myDataSet, feature_list)
     return clf
 
 '''
@@ -213,7 +179,7 @@ def doDecisionTree():
     returns: adaboost classifier object
     Non PCA
 '''
-def doAdaBoost ():
+def do_ada_boost ():
     clf = AdaBoostClassifier(n_estimators=100)
 
     features_train, features_test, labels_train, labels_test = \
@@ -223,24 +189,18 @@ def doAdaBoost ():
 
     pred = clf.predict(features_test)
 
-    test_classifier(clf, myDataSet, featuresList, folds=1000)
-
-    print(accuracy_score(labels_test, pred))
-    print(precision_score(labels_test, pred))
-    print(recall_score(labels_test, pred))
-    print(f1_score(labels_test, pred))
-    print(classification_report(labels_test, pred))
-    print(confusion_matrix(labels_test, pred))
-
+    test_classifier(clf, myDataSet, feature_list, folds=1000)
 
     return clf
+
+
 
 '''
     input: clf object
     returns: K-Nearest Neighbors object
     Non PCA
 '''
-def doKneighbors():
+def do_kneighbors():
     clf = KNeighborsClassifier(n_neighbors=7)
 
     features_train, features_test, labels_train, labels_test = \
@@ -250,21 +210,28 @@ def doKneighbors():
 
     pred = clf.predict(features_test)
 
-    test_classifier(clf, myDataSet, featuresList, folds=1000)
+    test_classifier(clf, myDataSet, feature_list, folds=1000)
 
-    print(accuracy_score(labels_test, pred))
-    print(precision_score(labels_test, pred))
-    print(recall_score(labels_test, pred))
-    print(f1_score(labels_test, pred))
-    print(classification_report(labels_test, pred))
-    print(confusion_matrix(labels_test, pred))
+
 
     return clf
 
 
 features_train, features_test, labels_train, labels_test = train_test_split(features, labels, test_size=0.3, random_state=42)
 
-### Task 5: Tune your classifier to achieve better than .3 precision and recall 
+#feedback implemened to use StratifiedShuffleSplit
+test_classifier(clf, myDataSet, feature_list, folds = 1000)
+
+#Selecing the best features SelectKBest method from scikit-learn.
+
+def getKbest():
+    import select_k_best as kbest
+    top_features = kbest.Select_k_best(data_dict, feature_list, 14)
+    return top_features
+
+best_k_best_features=getKbest()
+
+### Task 5: Tune your classifier to achieve better than .3 precision and recall
 
 
 from sklearn.cross_validation import train_test_split
@@ -275,7 +242,7 @@ clf.fit(features_train, labels_train)
     plots data
     input data set
 '''
-def doPlot(dataSet,features):
+def do_plot(dataSet, features):
     import pandas as pd
     import matplotlib.pyplot as plt1
 
@@ -308,7 +275,7 @@ def doPlot(dataSet,features):
     plt1.show()
 
 
-def doPlotSalaryAndBonus():
+def do_plot_salary_bonus():
     import matplotlib.pyplot as plt2
     import pandas as pd
 
@@ -316,12 +283,12 @@ def doPlotSalaryAndBonus():
 
     print(sb_dataDF)
 
-    salBonDic = {}
+    sal_bon_dic = {}
     for k in iter(sb_dataDF.keys()):
         try:
             if sb_dataDF[k]['salary'] > 0 and sb_dataDF[k]['salary'] != 'NaN':
                 if sb_dataDF[k]['bonus'] != 'NaN':
-                    salBonDic.__setitem__(sb_dataDF[k]['salary'], sb_dataDF[k]['bonus'])
+                    sal_bon_dic.__setitem__(sb_dataDF[k]['salary'], sb_dataDF[k]['bonus'])
 
         except:
             print ('in function doPlotSalaryAndBonus, something happend. Probably uncomparable data: ', sb_dataDF[k]['salary'] , ' and ' , '0 could not be compared. Ignoring issue and proceeding')
@@ -329,11 +296,11 @@ def doPlotSalaryAndBonus():
 
 
     salaryCol = []
-    for k in iter(salBonDic.keys()):
+    for k in iter(sal_bon_dic.keys()):
         salaryCol.append(k)
 
     bonusCol = []
-    for v in iter(salBonDic.values()):
+    for v in iter(sal_bon_dic.values()):
         bonusCol.append(v)
 
     
@@ -346,7 +313,7 @@ def doPlotSalaryAndBonus():
     plt2.show()
 
 
-def doExercisedStockOptionsLongTermIncentive():
+def do_exercised_stock_options_long_term_Incentive():
     import matplotlib.pyplot as plt3
     import pandas as pd
 
@@ -393,7 +360,7 @@ def doExercisedStockOptionsLongTermIncentive():
 #clf = kbest.SelectKbest(data_dict,featuresList,14)
 
 
-clf = doDecisionTree()
+clf = do_ADA_decision_tree()
 
 #clf = doAdaBoost()
 
@@ -402,4 +369,4 @@ clf = doDecisionTree()
 
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 
-dump_classifier_and_data(clf, myDataSet, featuresList)
+dump_classifier_and_data(clf, myDataSet, feature_list)
