@@ -3,7 +3,10 @@ import pprint
 import sys
 import pickle
 from collections import defaultdict
+from pickle import dump
+
 import matplotlib.pyplot as plt
+from sklearn import preprocessing, cross_validation
 from sklearn.decomposition import PCA
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -13,9 +16,7 @@ plt.style.use('ggplot')
 import feature_creator as fc
 import pandas as pd
 from sklearn.model_selection import train_test_split, StratifiedShuffleSplit, GridSearchCV
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
+
 
 sys.path.append("../tools/")
 
@@ -28,10 +29,10 @@ feature_list = ['poi', 'salary', 'to_messages', 'deferral_payments', 'total_paym
                  'deferred_income', 'total_stock_value', 'expenses', 'from_poi_to_this_person',
                  'exercised_stock_options', 'from_messages', 'other', 'from_this_person_to_poi',
                  'long_term_incentive', 'shared_receipt_with_poi', 'restricted_stock', 'director_fees']
-
 ### Load the dictionary containing the dataset
 with open("final_project_dataset.pkl", "rb") as data_file:
     data_dict = pickle.load(data_file)
+
 
 # Total number of data points
 #print('There are {} people in the dataset.'.format(len(data_dict)))
@@ -40,7 +41,7 @@ with open("final_project_dataset.pkl", "rb") as data_file:
 poi_counts = defaultdict(int)
 for featureValues in data_dict.values():
     poi_counts[featureValues['poi']] += 1
-#print('There are {} POIs and {} non-POI''s.'.format(poi_counts[True], poi_counts[False]))
+print('There are {} POIs and {} non-POI''s.'.format(poi_counts[True], poi_counts[False]))
 
 # Names of features
 list(list(data_dict.values())[0].keys())
@@ -85,7 +86,6 @@ data_dict.pop("TOTAL", 0)
 data_dict.pop("THE TRAVEL AGENCY IN THE PARK", 0)
 data_dict.pop("LOCKHART EUGENE E", 0)
 
-
 ### Task 3: Create new feature(s)
 
 '''
@@ -100,8 +100,6 @@ feature_list = fc.CreatePoiEmailRatio(data_dict, feature_list)
 ### Store to my_dataset for easy export below.
 myDataSet = data_dict
 #print('data set has: ',my_dataset)
-
-
 
 ### Extract features and labels from dataset for local testing
 
@@ -166,7 +164,6 @@ second_pc = pca.components_[1]
     returns decision tree classifier classifier
 '''
 
-
 def do_ADA_decision_tree():
     clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1, min_samples_leaf=2, class_weight='balanced'),
                              n_estimators=50, learning_rate=.8)
@@ -192,8 +189,6 @@ def do_ada_boost ():
     test_classifier(clf, myDataSet, feature_list, folds=1000)
 
     return clf
-
-
 
 '''
     input: clf object
@@ -222,14 +217,21 @@ features_train, features_test, labels_train, labels_test = train_test_split(feat
 #feedback implemened to use StratifiedShuffleSplit
 test_classifier(clf, myDataSet, feature_list, folds = 1000)
 
-#Selecing the best features SelectKBest method from scikit-learn.
+'''
+    Selecing the best features SelectKBest method from scikit-learn.
+    returns best features according to k best
+'''
 
 def getKbest():
     import select_k_best as kbest
-    top_features = kbest.Select_k_best(data_dict, feature_list, 14)
+    top_features = kbest.Select_k_best(data_dict, feature_list,18)
     return top_features
 
 best_k_best_features=getKbest()
+
+pprint.pprint(best_k_best_features)
+
+
 
 ### Task 5: Tune your classifier to achieve better than .3 precision and recall
 
@@ -349,6 +351,34 @@ def do_exercised_stock_options_long_term_Incentive():
     plt3.ylabel('Exercised Stock Options')
     plt3.show()
 
+def doGridSearchCV():
+    from sklearn.model_selection import GridSearchCV
+    import sklearn
+
+    n_features = pd.np.arange(1, len(feature_list))
+
+    # Create a pipeline with feature selection and classification
+    from sklearn.feature_selection import SelectKBest
+    pipe = Pipeline([
+        ('select_features', SelectKBest()),
+        ('classify', DecisionTreeClassifier())
+    ])
+
+    param_grid = [
+        {
+            'select_features__k': n_features
+        }
+    ]
+
+    # Use GridSearchCV to automate the process of finding the optimal number of features
+    tree_clf = GridSearchCV(pipe, param_grid=param_grid)
+    tree_clf.fit(features, labels)
+    print('Best K value param: \n',tree_clf.best_params_)
+    return tree_clf.best_params_['select_features__k']
+
+#clf = do_ADA_decision_tree()
+
+
 #show plotting
 #doPlot()
 #doPlotSalaryAndBonus()
@@ -357,10 +387,9 @@ def do_exercised_stock_options_long_term_Incentive():
 ################################## DRIVER FUNCTIONS ##################################
 
 #run kbest default is 10
-#clf = kbest.SelectKbest(data_dict,featuresList,14)
-
-
-clf = do_ADA_decision_tree()
+import select_k_best as kbest
+clf = kbest.Select_k_best(data_dict,feature_list,doGridSearchCV())
+pprint.pprint(clf)
 
 #clf = doAdaBoost()
 

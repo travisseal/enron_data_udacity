@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d793935e-4129-45b7-bb77-bd9a8cfef78e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LogisticRegression.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identify Fraud from Enron Email.pdf" afterPath="$PROJECT_DIR$/Identify Fraud from Enron Email.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_classifier.pkl" afterPath="$PROJECT_DIR$/my_classifier.pkl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_dataset.pkl" afterPath="$PROJECT_DIR$/my_dataset.pkl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_feature_list.pkl" afterPath="$PROJECT_DIR$/my_feature_list.pkl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/poi_id.py" afterPath="$PROJECT_DIR$/poi_id.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/featureCreator.py" afterPath="$PROJECT_DIR$/feature_creator.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/selectKbest.py" afterPath="$PROJECT_DIR$/select_k_best.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/select_k_best.py" afterPath="$PROJECT_DIR$/select_k_best.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,20 +23,28 @@
       <file leaf-file-name="poi_id.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/poi_id.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+            <state relative-caret-position="453">
+              <caret line="376" column="54" lean-forward="true" selection-start-line="353" selection-start-column="0" selection-end-line="376" selection-end-column="54" />
               <folding>
                 <element signature="e#18#31#0" expanded="true" />
-                <element signature="e#2081#3182#0" expanded="false" />
-                <element signature="e#4491#4629#1" expanded="false" />
-                <element signature="e#4652#4752#0" expanded="false" />
-                <element signature="e#5690#6034#0" expanded="false" />
-                <element signature="e#6038#6119#1" expanded="false" />
-                <element signature="e#6145#6490#0" expanded="false" />
-                <element signature="e#7229#8117#0" expanded="false" />
-                <element signature="e#8152#9185#0" expanded="false" />
-                <element signature="e#9246#10646#0" expanded="false" />
+                <element signature="e#3957#4310#0" expanded="false" />
+                <element signature="e#4386#4524#1" expanded="false" />
+                <element signature="e#4547#4647#0" expanded="false" />
+                <element signature="e#5584#5928#0" expanded="false" />
+                <element signature="e#7216#8104#0" expanded="false" />
+                <element signature="e#8139#9172#0" expanded="false" />
+                <element signature="e#9233#10633#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tester.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tester.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -45,8 +52,8 @@
       <file leaf-file-name="select_k_best.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/select_k_best.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+            <state relative-caret-position="357">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -63,19 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>here</find>
-      <find>features_test</find>
-      <find>from sklearn.decomposition import PCA</find>
-      <find>poi_email_ratio</find>
-      <find>exercised_stock_options</find>
-      <find>poi</find>
-      <find>exerci</find>
-      <find>.show</find>
-      <find>pca</find>
-      <find>bonus</find>
-      <find>salary</find>
-      <find>exercised</find>
-      <find>long</find>
       <find>exercise</find>
       <find>total</find>
       <find>doAdaBoost</find>
@@ -87,12 +81,25 @@
       <find>stratified</find>
       <find>StratifiedShuffleSplit</find>
       <find>from_poi_to_this_person</find>
-      <find>features</find>
       <find>best</find>
       <find>DecisionTreeClassifier</find>
       <find>decision</find>
       <find>kbest</find>
       <find>print</find>
+      <find>features</find>
+      <find>select_k</find>
+      <find>best_k_best_features</find>
+      <find>k_</find>
+      <find>other</find>
+      <find>select</find>
+      <find>def do</find>
+      <find>f1</find>
+      <find>clf</find>
+      <find>do_ada</find>
+      <find>labels, features</find>
+      <find>train_test_split</find>
+      <find>deci</find>
+      <find>grid</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,20 +112,23 @@
         <option value="$PROJECT_DIR$/tester.py" />
         <option value="$PROJECT_DIR$/featureCreator.py" />
         <option value="$PROJECT_DIR$/selectKbest.py" />
+        <option value="$PROJECT_DIR$/LogisticRegression.py" />
         <option value="$PROJECT_DIR$/select_k_best.py" />
         <option value="$PROJECT_DIR$/poi_id.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1151" />
-    <option name="height" value="860" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -131,24 +141,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="final_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="final_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -289,18 +282,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1151" height="860" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.244373" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27023497" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3994778" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -308,47 +301,16 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28328982" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31887755" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/poi_id.py</url>
-          <line>116</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/poi_id.py</url>
-          <line>169</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="24" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -359,15 +321,38 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#18#31#0" expanded="true" />
-            <element signature="e#2081#3182#0" expanded="false" />
-            <element signature="e#4491#4629#1" expanded="false" />
-            <element signature="e#4652#4752#0" expanded="false" />
-            <element signature="e#5690#6034#0" expanded="false" />
-            <element signature="e#6038#6119#1" expanded="false" />
-            <element signature="e#6145#6490#0" expanded="false" />
-            <element signature="e#7229#8117#0" expanded="false" />
-            <element signature="e#8152#9185#0" expanded="false" />
-            <element signature="e#9246#10646#0" expanded="false" />
+            <element signature="e#3957#4310#0" expanded="false" />
+            <element signature="e#4386#4524#1" expanded="false" />
+            <element signature="e#4547#4647#0" expanded="false" />
+            <element signature="e#5584#5928#0" expanded="false" />
+            <element signature="e#7216#8104#0" expanded="false" />
+            <element signature="e#8139#9172#0" expanded="false" />
+            <element signature="e#9233#10633#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/select_k_best.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/poi_id.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#18#31#0" expanded="true" />
+            <element signature="e#3957#4310#0" expanded="false" />
+            <element signature="e#4386#4524#1" expanded="false" />
+            <element signature="e#4547#4647#0" expanded="false" />
+            <element signature="e#5584#5928#0" expanded="false" />
+            <element signature="e#7216#8104#0" expanded="false" />
+            <element signature="e#8139#9172#0" expanded="false" />
+            <element signature="e#9233#10633#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -409,39 +394,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/sklearn/feature_selection/univariate_selection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="484" column="8" lean-forward="false" selection-start-line="484" selection-start-column="8" selection-end-line="484" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LogisticRegression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/sklearn/metrics/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="1134" column="0" lean-forward="false" selection-start-line="1134" selection-start-column="0" selection-end-line="1134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="78" column="45" lean-forward="true" selection-start-line="78" selection-start-column="45" selection-end-line="78" selection-end-column="45" />
-          <folding>
-            <element signature="e#946#3366#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="109">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/select_k_best.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        <state relative-caret-position="357">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/poi_id.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+        <state relative-caret-position="453">
+          <caret line="376" column="54" lean-forward="true" selection-start-line="353" selection-start-column="0" selection-end-line="376" selection-end-column="54" />
           <folding>
             <element signature="e#18#31#0" expanded="true" />
-            <element signature="e#2081#3182#0" expanded="false" />
-            <element signature="e#4491#4629#1" expanded="false" />
-            <element signature="e#4652#4752#0" expanded="false" />
-            <element signature="e#5690#6034#0" expanded="false" />
-            <element signature="e#6038#6119#1" expanded="false" />
-            <element signature="e#6145#6490#0" expanded="false" />
-            <element signature="e#7229#8117#0" expanded="false" />
-            <element signature="e#8152#9185#0" expanded="false" />
-            <element signature="e#9246#10646#0" expanded="false" />
+            <element signature="e#3957#4310#0" expanded="false" />
+            <element signature="e#4386#4524#1" expanded="false" />
+            <element signature="e#4547#4647#0" expanded="false" />
+            <element signature="e#5584#5928#0" expanded="false" />
+            <element signature="e#7216#8104#0" expanded="false" />
+            <element signature="e#8139#9172#0" expanded="false" />
+            <element signature="e#9233#10633#0" expanded="false" />
           </folding>
         </state>
       </provider>
