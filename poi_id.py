@@ -229,7 +229,7 @@ def getKbest():
 
 best_k_best_features=getKbest()
 
-pprint.pprint(best_k_best_features)
+#pprint.pprint(best_k_best_features)
 
 
 
@@ -376,7 +376,7 @@ def doGridSearchCV():
     #print('Best K value param: \n',tree_clf.best_params_)
     return tree_clf.best_params_['select_features__k']
 
-clf = do_ADA_decision_tree()
+
 
 
 #show plotting
@@ -388,8 +388,18 @@ clf = do_ADA_decision_tree()
 
 #run kbest default is 10
 import select_k_best as kbest
-clf = kbest.Select_k_best(data_dict,feature_list,doGridSearchCV())
-pprint.pprint(clf)
+
+#what is the purpose of this?
+selected_best_features_list = kbest.Select_k_best(data_dict,feature_list,doGridSearchCV())
+
+#There is an error here. Above clf returns a list.
+
+clf = do_ADA_decision_tree()
+
+if isinstance(clf,AdaBoostClassifier):
+    print ('clf is an instance of a classifier')
+else:
+    print('it is not a ML classifier')
 
 #clf = doAdaBoost()
 
