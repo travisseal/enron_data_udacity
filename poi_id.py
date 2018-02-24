@@ -373,10 +373,10 @@ def doGridSearchCV():
     # Use GridSearchCV to automate the process of finding the optimal number of features
     tree_clf = GridSearchCV(pipe, param_grid=param_grid)
     tree_clf.fit(features, labels)
-    print('Best K value param: \n',tree_clf.best_params_)
+    #print('Best K value param: \n',tree_clf.best_params_)
     return tree_clf.best_params_['select_features__k']
 
-#clf = do_ADA_decision_tree()
+clf = do_ADA_decision_tree()
 
 
 #show plotting
